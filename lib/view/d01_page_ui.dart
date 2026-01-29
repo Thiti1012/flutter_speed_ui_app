@@ -10,6 +10,8 @@ class D01PageUi extends StatefulWidget {
 class _D01PageUiState extends State<D01PageUi> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 225, 255),
+    );
   }
 }

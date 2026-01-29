@@ -10,6 +10,10 @@ class A02PageUi extends StatefulWidget {
 class _A02PageUiState extends State<A02PageUi> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+        backgroundColor: Color(0xFFFFFFFF),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+        ));
   }
 }
