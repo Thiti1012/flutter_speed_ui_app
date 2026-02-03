@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_body_health_calculator_app/view/b02_page_ui.dart';
+import 'package:flutter_body_health_calculator_app/view/b03_page_ui.dart';
 
 class B01PageUi extends StatefulWidget {
   const B01PageUi({super.key});
@@ -92,7 +93,7 @@ class _B01PageUiState extends State<B01PageUi> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => B02PageUi(),
+                          builder: (context) => B03PageUi(),
                         ),
                       );
                     },

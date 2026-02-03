@@ -50,6 +50,7 @@ class _A02PageUiState extends State<A02PageUi> {
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                // 3. ใช้ Padding ในการจัดหน้า เว้นขอบไว้ 30 พิกเซล
                 child: Column(
                   children: [
                     const SizedBox(height: 10),
