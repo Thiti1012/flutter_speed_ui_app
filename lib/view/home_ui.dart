@@ -6,6 +6,7 @@ import 'package:flutter_body_health_calculator_app/view/b01_page_ui.dart';
 import 'package:flutter_body_health_calculator_app/view/c01_page_ui.dart';
 import 'package:flutter_body_health_calculator_app/view/d01_page_ui.dart';
 import 'package:flutter_body_health_calculator_app/view/e01_page_ui.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeUi extends StatelessWidget {
   const HomeUi({super.key});
@@ -35,7 +36,7 @@ class HomeUi extends StatelessWidget {
                 );
               },
               child: Text('Go to A Page',
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -64,7 +65,7 @@ class HomeUi extends StatelessWidget {
                 );
               },
               child: Text('Go to B Page',
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -93,7 +94,7 @@ class HomeUi extends StatelessWidget {
                 );
               },
               child: Text('Go to C Page',
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -122,7 +123,7 @@ class HomeUi extends StatelessWidget {
                 );
               },
               child: Text('Go to D Page',
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -151,7 +152,7 @@ class HomeUi extends StatelessWidget {
                 );
               },
               child: Text('Go to E Page',
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,

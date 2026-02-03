@@ -52,10 +52,7 @@ class _B02PageUiState extends State<B02PageUi> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color: Color(0xFF1F41BB), // สีของเส้นรอบ
-                    width: 10.0, // ความหนาของเส้นรอบ
-                  ),
+                  borderSide: BorderSide.none,
                 ),
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
@@ -69,11 +66,7 @@ class _B02PageUiState extends State<B02PageUi> {
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(
-                    color: Color(0xFF1F41BB),
-                    width: 10.0,
-                  ),
+                  borderSide: BorderSide.none,
                 ),
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),

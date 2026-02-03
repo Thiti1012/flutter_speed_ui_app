@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_body_health_calculator_app/view/a02_page_ui.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class A01PageUi extends StatefulWidget {
   const A01PageUi({super.key});
@@ -22,25 +23,23 @@ class _A01PageUiState extends State<A01PageUi> {
               height: MediaQuery.of(context).size.height * 0.55,
               decoration: const BoxDecoration(
                 color: Color(0xFFF89AEE),
-                // ทำให้ขอบด้านล่างมนตามรูป
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(40),
                   bottomRight: Radius.circular(40),
                 ),
               ),
-              // ใส่รูปภาพตรงนี้ (อย่าลืม import รูปเข้า assets ใน pubspec.yaml)
               child: Center(
                 child: Image.asset(
-                  'assets/images/img7.png', // <-- เปลี่ยนเป็น path รูปของคุณ
-                  fit: BoxFit.contain, // ปรับขนาดรูปให้พอดี
-                  scale: 0.8, // ปรับย่อ/ขยายรูปตามต้องการ
+                  'assets/images/img7.png',
+                  fit: BoxFit.contain,
+                  scale: 0.8,
                 ),
               ),
             ),
             SizedBox(height: 20),
             Text(
               'Discover Your',
-              style: TextStyle(
+              style: GoogleFonts.outfit(
                 fontSize: MediaQuery.of(context).size.width * 0.075,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF464444),
@@ -48,7 +47,7 @@ class _A01PageUiState extends State<A01PageUi> {
             ),
             Text(
               'Own Dream House',
-              style: TextStyle(
+              style: GoogleFonts.outfit(
                 fontSize: MediaQuery.of(context).size.width * 0.075,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF464444),
@@ -57,28 +56,28 @@ class _A01PageUiState extends State<A01PageUi> {
             SizedBox(height: 20),
             Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-              style: TextStyle(
+              style: GoogleFonts.outfit(
                 fontSize: MediaQuery.of(context).size.width * 0.033,
                 color: Color(0xFF000000),
               ),
             ),
             Text(
               'Diam maecenas mi non sed ut odio. Non, justo, sed facilisi',
-              style: TextStyle(
+              style: GoogleFonts.outfit(
                 fontSize: MediaQuery.of(context).size.width * 0.033,
                 color: Color(0xFF000000),
               ),
             ),
             Text(
               'et.Eget viverra urna, vestibulum egestas faucibus',
-              style: TextStyle(
+              style: GoogleFonts.outfit(
                 fontSize: MediaQuery.of(context).size.width * 0.033,
                 color: Color(0xFF000000),
               ),
             ),
             Text(
               'egestas. Sagittis nam velit volutpat eu nunc.',
-              style: TextStyle(
+              style: GoogleFonts.outfit(
                 fontSize: MediaQuery.of(context).size.width * 0.033,
                 color: Color(0xFF000000),
               ),
@@ -90,9 +89,10 @@ class _A01PageUiState extends State<A01PageUi> {
                 ElevatedButton(
                   onPressed: () {},
                   child: Text('Sing in',
-                      style: TextStyle(
+                      style: GoogleFonts.outfit(
                         fontSize: 20,
                         color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       )),
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(
@@ -119,9 +119,10 @@ class _A01PageUiState extends State<A01PageUi> {
                     );
                   },
                   child: Text('Register',
-                      style: TextStyle(
+                      style: GoogleFonts.outfit(
                         fontSize: 20,
                         color: Color(0xFF545151),
+                        fontWeight: FontWeight.bold,
                       )),
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(
