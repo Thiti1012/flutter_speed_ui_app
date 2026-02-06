@@ -15,7 +15,8 @@ class HomeUi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF390050),
-      body: Center(
+      body: SingleChildScrollView(
+          child: Center(
         child: Column(
           children: [
             SizedBox(height: 80),
@@ -23,7 +24,7 @@ class HomeUi extends StatelessWidget {
               'assets/images/img6.png',
               width: MediaQuery.of(context).size.width * 0.6,
               height: MediaQuery.of(context).size.height * 0.27,
-              fit: BoxFit.cover, // ปรับขนาดรูปให้พอดี
+              fit: BoxFit.contain, // ปรับขนาดรูปให้พอดี
             ),
             SizedBox(height: 50),
             ElevatedButton(
@@ -172,7 +173,7 @@ class HomeUi extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }
