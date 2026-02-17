@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_body_health_calculator_app/view/c02_page_ui.dart';
+import 'package:flutter_speed_ui_app/view/c02_page_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class C01PageUi extends StatefulWidget {

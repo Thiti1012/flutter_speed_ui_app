@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_body_health_calculator_app/view/b02_page_ui.dart';
+import 'package:flutter_speed_ui_app/view/b02_page_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,183 +13,188 @@ class B03PageUi extends StatefulWidget {
 class _B03PageUiState extends State<B03PageUi> {
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Center(
+      backgroundColor: const Color(0xFFFFFFFF),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: Center(
             child: Column(
-          children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.09),
-            Text(
-              'Create Account',
-              style: GoogleFonts.poppins(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1F41BB),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-            Text(
-              'Create an account so you can explore all the',
-              style: GoogleFonts.poppins(
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
-                color: Color(0xFF000000),
-              ),
-            ),
-            Text(
-              'all the existing jobs',
-              style: GoogleFonts.poppins(
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
-                color: Color(0xFF000000),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.06),
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
-                filled: true,
-                fillColor: Color(0xFFF1F4FF),
-                hintText: 'Email',
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.025),
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
-                filled: true,
-                fillColor: Color(0xFFF1F4FF),
-                hintText: 'Password',
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.025),
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
-                filled: true,
-                fillColor: Color(0xFFF1F4FF),
-                hintText: 'Confirm Password',
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.06),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Sign in',
-                  style: GoogleFonts.poppins(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFFFFFFF),
-                  )),
-              style: ElevatedButton.styleFrom(
-                fixedSize: Size(
-                  MediaQuery.of(context).size.width * 0.85,
-                  MediaQuery.of(context).size.height * 0.07,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                backgroundColor: Color(0xFF1F41BB),
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                textStyle: TextStyle(fontSize: 18),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => B02PageUi()));
-              },
-              child: Text('Already have an account'),
-              style: TextButton.styleFrom(
-                textStyle: GoogleFonts.poppins(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF494949),
-                  backgroundColor: Color(0xFFFFFFFF),
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.07),
-            Text(
-              'Or continue with',
-              style: GoogleFonts.poppins(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1F41BB),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Icon(FontAwesomeIcons.google,
-                      size: 22, color: Color(0xFF000000)),
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: Size(
-                      MediaQuery.of(context).size.width * 0.17,
-                      MediaQuery.of(context).size.height * 0.055,
+                SizedBox(height: height * 0.08),
+                Text(
+                  'Create Account',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF1F41BB),
+                  ),
+                ),
+                SizedBox(height: height * 0.02),
+                Text(
+                  'Create an account so you can explore all the existing jobs',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: const Color(0xFF000000),
+                  ),
+                ),
+                SizedBox(height: height * 0.05),
+                TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide.none,
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 20.0, horizontal: 20.0),
+                    filled: true,
+                    fillColor: const Color(0xFFF1F4FF),
+                    hintText: 'Email',
+                  ),
+                ),
+                SizedBox(height: height * 0.02),
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 20.0, horizontal: 20.0),
+                    filled: true,
+                    fillColor: const Color(0xFFF1F4FF),
+                    hintText: 'Password',
+                  ),
+                ),
+                SizedBox(height: height * 0.02),
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 20.0, horizontal: 20.0),
+                    filled: true,
+                    fillColor: const Color(0xFFF1F4FF),
+                    hintText: 'Confirm Password',
+                  ),
+                ),
+                SizedBox(height: height * 0.05),
+                SizedBox(
+                  width: double.infinity,
+                  height: height * 0.07,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      backgroundColor: const Color(0xFF1F41BB),
+                      elevation: 5,
+                      shadowColor: const Color(0xFF1F41BB).withOpacity(0.4),
+                    ),
+                    child: Text(
+                      'Sign up',
+                      style: GoogleFonts.poppins(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFFFFFFFF),
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Icon(FontAwesomeIcons.facebook,
-                      size: 22, color: Color(0xFF000000)),
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: Size(
-                      MediaQuery.of(context).size.width * 0.17,
-                      MediaQuery.of(context).size.height * 0.055,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Icon(FontAwesomeIcons.apple,
-                      size: 22, color: Color(0xFF000000)),
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: Size(
-                      MediaQuery.of(context).size.width * 0.17,
-                      MediaQuery.of(context).size.height * 0.055,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                SizedBox(height: height * 0.02),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const B02PageUi()),
+                    );
+                  },
+                  child: Text(
+                    'Already have an account',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFF494949),
                     ),
                   ),
                 ),
+                SizedBox(height: height * 0.05),
+                Text(
+                  'Or continue with',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF1F41BB),
+                  ),
+                ),
+                SizedBox(height: height * 0.02),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        fixedSize: const Size(60, 44),
+                        backgroundColor: const Color(0xFFECECEC),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Icon(FontAwesomeIcons.google,
+                          size: 20, color: Color(0xFF000000)),
+                    ),
+                    SizedBox(width: width * 0.04),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        fixedSize: const Size(60, 44),
+                        backgroundColor: const Color(0xFFECECEC),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Icon(FontAwesomeIcons.facebookF,
+                          size: 20, color: Color(0xFF000000)),
+                    ),
+                    SizedBox(width: width * 0.04),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        fixedSize: const Size(60, 44),
+                        backgroundColor: const Color(0xFFECECEC),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Icon(FontAwesomeIcons.apple,
+                          size: 20, color: Color(0xFF000000)),
+                    ),
+                  ],
+                ),
+                SizedBox(height: height * 0.05),
               ],
             ),
-          ],
-        )),
+          ),
+        ),
       ),
     );
   }

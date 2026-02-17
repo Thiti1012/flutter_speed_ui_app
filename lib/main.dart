@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_body_health_calculator_app/view/home_ui.dart';
+import 'package:flutter_speed_ui_app/view/home_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {

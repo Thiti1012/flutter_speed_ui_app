@@ -1,215 +1,329 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_ui_app/view/a01_page_ui.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class A02PageUi extends StatefulWidget {
+class A02PageUi extends StatelessWidget {
   const A02PageUi({super.key});
 
   @override
-  State<A02PageUi> createState() => _A02PageUiState();
-}
-
-class _A02PageUiState extends State<A02PageUi> {
-  // 1. ฟังก์ชันสร้างแถบสถานะจำลอง (Fake Status Bar)
-  Widget _buildFakeStatusBar() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 10, 20, 0), // เว้นขอบ
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // เวลา
-          const Text(
-            "9:41",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-          // กลุ่มไอคอน (สัญญาณ, Wifi, แบต)
-          Row(
-            children: const [
-              Icon(Icons.signal_cellular_alt, size: 18),
-              SizedBox(width: 5),
-              Icon(Icons.wifi, size: 18),
-              SizedBox(width: 5),
-              Icon(Icons.battery_full, size: 18),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFFFF),
-      // 2. ไม่ใช้ AppBar ปกติ เพื่อให้เราจัดหน้าจอได้เองทั้งหมด
-
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // --- ส่วนที่ 1: แถบสถานะจำลอง ---
-              _buildFakeStatusBar(),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                // 3. ใช้ Padding ในการจัดหน้า เว้นขอบไว้ 30 พิกเซล
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10),
-
-                    // --- ส่วนที่ 2: ปุ่มย้อนกลับ (ทำเอง) ---
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back_ios,
-                            color: Colors.black),
-                        onPressed: () {
-                          // โค้ดสำหรับกดกลับ
-                          if (Navigator.canPop(context)) {
-                            Navigator.pop(context);
-                          }
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: SizedBox(
+            height: screenHeight < 980.0 ? 980.0 : screenHeight,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 10,
+                  left: 16,
+                  right: 16,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      StreamBuilder<DateTime>(
+                        stream: Stream.periodic(
+                          const Duration(seconds: 1),
+                          (_) => DateTime.now(),
+                        ),
+                        initialData: DateTime.now(),
+                        builder: (context, snapshot) {
+                          final now = snapshot.data ?? DateTime.now();
+                          final hh = now.hour.toString().padLeft(2, '0');
+                          final mm = now.minute.toString().padLeft(2, '0');
+                          return Text(
+                            '$hh:$mm',
+                            style: GoogleFonts.roboto(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          );
                         },
                       ),
-                    ),
-
-                    const SizedBox(height: 10),
-
-                    // --- ส่วนที่ 3: หัวข้อและเนื้อหา ---
-                    const Text(
-                      'Welcome Back',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF464444),
+                      Row(
+                        children: [
+                          Icon(Icons.signal_cellular_4_bar, size: 15),
+                          SizedBox(width: 4),
+                          Icon(Icons.wifi, size: 15),
+                          SizedBox(width: 4),
+                          Icon(Icons.battery_full_sharp, size: 15),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam maecenas mi non sed ut odio.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                    const SizedBox(height: 40),
-
-                    // --- ส่วนที่ 4: ช่องกรอกข้อมูล ---
-                    // ช่อง Username
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Username , Email & Phone Number',
-                        hintStyle: const TextStyle(color: Colors.grey),
-                        filled: true,
-                        fillColor: const Color(0xFFF3F3F3),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none,
-                        ),
-                        contentPadding: const EdgeInsets.all(20),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-
-                    // ช่อง Password
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hintText: 'Password',
-                        hintStyle: const TextStyle(color: Colors.grey),
-                        filled: true,
-                        fillColor: const Color(0xFFF3F3F3),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none,
-                        ),
-                        contentPadding: const EdgeInsets.all(20),
-                      ),
-                    ),
-
-                    // ปุ่ม Forgot Password
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Forgot Password ?',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-
-                    // --- ส่วนที่ 5: ปุ่ม Sign In ---
-                    SizedBox(
-                      width: double.infinity,
-                      height: 55,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF89AEE), // สีชมพู
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        ),
-                        child: const Text(
-                          'Sign in',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-
-                    // --- ส่วนที่ 6: เส้นคั่น Or Sign up With ---
-                    Row(
-                      children: const [
-                        Expanded(child: Divider(color: Color(0xFFF89AEE))),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('Or Sign up With',
-                              style: TextStyle(color: Colors.grey)),
-                        ),
-                        Expanded(child: Divider(color: Color(0xFFF89AEE))),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-
-                    // --- ส่วนที่ 7: ปุ่ม Social Media ---
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _buildSocialButton(
-                            Icons.g_mobiledata, Colors.green), // Google
-                        const SizedBox(width: 20),
-                        _buildSocialButton(
-                            Icons.facebook, Colors.blue), // Facebook
-                        const SizedBox(width: 20),
-                        _buildSocialButton(Icons.apple, Colors.black), // Apple
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Positioned(
+                  top: 90,
+                  left: 0,
+                  right: 0,
+                  child: Text(
+                    'Welcome Back',
+                    style: GoogleFonts.roboto(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w900,
+                      color: Color(0xFF464444),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Positioned(
+                  top: 140,
+                  left: 0,
+                  right: 0,
+                  child: Column(children: [
+                    Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing  ',
+                      style: GoogleFonts.roboto(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF000000),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'elit. Diam maecenas mi non sed ut odio. Non, justo,',
+                      style: GoogleFonts.roboto(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF000000),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'sed facilisi et. ',
+                      style: GoogleFonts.roboto(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF000000),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ]),
+                ),
+                Positioned(
+                  top: 230,
+                  left: 28,
+                  right: 28,
+                  child: Column(
+                    children: [
+                      TextField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          hintText: 'Usename,Email & Phone Number',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 245, 245, 245),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 22,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          hintText: 'Password',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 245, 245, 245),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 22,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Forget Password?',
+                            style: GoogleFonts.roboto(
+                              color: Color(0xFF000000),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => A01PageUi(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFFF89AEE),
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 22),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: Text(
+                            'Sign in',
+                            style: GoogleFonts.roboto(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 3,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [
+                                    Color(0xFFFFFFFF),
+                                    Color(0xFFF89AEE),
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(99),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            'Or Sign up With',
+                            style: GoogleFonts.roboto(
+                              color: const Color.fromARGB(255, 70, 70, 70),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Container(
+                              height: 3,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [
+                                    Color(0xFFF89AEE),
+                                    Color(0xFFFFFFFF),
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(99),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () {},
+                            borderRadius: BorderRadius.circular(99),
+                            child: Container(
+                              width: 62,
+                              height: 62,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 238, 238, 238),
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color:
+                                      const Color.fromARGB(255, 237, 174, 229),
+                                  width: 1.5,
+                                ),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  'assets/icon/google.png',
+                                  width: 30,
+                                  height: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          InkWell(
+                            onTap: () {},
+                            borderRadius: BorderRadius.circular(99),
+                            child: Container(
+                              width: 62,
+                              height: 62,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 238, 238, 238),
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color:
+                                      const Color.fromARGB(255, 237, 174, 229),
+                                  width: 1.5,
+                                ),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  'assets/icon/facebook1.png',
+                                  width: 30,
+                                  height: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          InkWell(
+                            onTap: () {},
+                            borderRadius: BorderRadius.circular(99),
+                            child: Container(
+                              width: 62,
+                              height: 62,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 238, 238, 238),
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color:
+                                      const Color.fromARGB(255, 237, 174, 229),
+                                  width: 1.5,
+                                ),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  'assets/icon/apple.png',
+                                  width: 30,
+                                  height: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
-    );
-  }
-
-  // Helper: สร้างปุ่มวงกลม Social Media
-  Widget _buildSocialButton(IconData icon, Color color) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: const BoxDecoration(
-        color: Color(0xFFF3F3F3),
-        shape: BoxShape.circle,
-      ),
-      child: Icon(icon, color: color, size: 30),
     );
   }
 }

@@ -1,11 +1,11 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:flutter_body_health_calculator_app/view/a01_page_ui.dart';
-import 'package:flutter_body_health_calculator_app/view/b01_page_ui.dart';
-import 'package:flutter_body_health_calculator_app/view/c01_page_ui.dart';
-import 'package:flutter_body_health_calculator_app/view/d01_page_ui.dart';
-import 'package:flutter_body_health_calculator_app/view/e01_page_ui.dart';
+import 'package:flutter_speed_ui_app/view/a01_page_ui.dart';
+import 'package:flutter_speed_ui_app/view/b01_page_ui.dart';
+import 'package:flutter_speed_ui_app/view/c01_page_ui.dart';
+import 'package:flutter_speed_ui_app/view/d01_page_ui.dart';
+import 'package:flutter_speed_ui_app/view/e01_page_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeUi extends StatelessWidget {
@@ -19,14 +19,14 @@ class HomeUi extends StatelessWidget {
           child: Center(
         child: Column(
           children: [
-            SizedBox(height: 80),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
             Image.asset(
               'assets/images/img6.png',
-              width: MediaQuery.of(context).size.width * 0.6,
-              height: MediaQuery.of(context).size.height * 0.27,
-              fit: BoxFit.contain, // ปรับขนาดรูปให้พอดี
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.3,
+              fit: BoxFit.contain,
             ),
-            SizedBox(height: 50),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
