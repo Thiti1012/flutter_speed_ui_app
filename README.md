@@ -44,7 +44,7 @@ This project is a starting point for a Flutter application.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img width="250" height="2796" alt="21" src="https://github.com/user-attachments/assets/a9a49728-05ba-484e-ac38-137035109066" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img width="1290" height="2796" alt="22" src="https://github.com/user-attachments/assets/7a9a860e-62a6-4cf3-8f75-73bc820cb320" />
+<img width="250" height="2796" alt="22" src="https://github.com/user-attachments/assets/7a9a860e-62a6-4cf3-8f75-73bc820cb320" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br /><br /><br />
