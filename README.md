@@ -12,5 +12,5 @@ This project is a starting point for a Flutter application.
 <br /><br /><br />
 <img width="250" height="2796" alt="5" src="https://github.com/user-attachments/assets/5bcc01e0-7c0f-4a63-8e6e-a7813351fda6" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img width="1290" height="2796" alt="6" src="https://github.com/user-attachments/assets/cd79bc84-aa15-4f43-bab8-c92740b95e24" />
+<img width="250" height="2796" alt="6" src="https://github.com/user-attachments/assets/cd79bc84-aa15-4f43-bab8-c92740b95e24" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
