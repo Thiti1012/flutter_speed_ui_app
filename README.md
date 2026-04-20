@@ -35,7 +35,6 @@ A new Flutter project. This project is a starting point for a Flutter applicatio
   <tr>
     <td><img width="200" alt="21" src="https://github.com/user-attachments/assets/a9a49728-05ba-484e-ac38-137035109066"></td>
     <td><img width="200" alt="22" src="https://github.com/user-attachments/assets/7a9a860e-62a6-4cf3-8f75-73bc820cb320"></td>
-    <td></td>
-    <td></td>
+  </tr>
   </tr>
 </table>
